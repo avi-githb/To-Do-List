@@ -116,6 +116,21 @@ App = {
     }
 
   },
+  //creating a new task from frontend
+  createTask: async()=>{
+
+    //calling the set load function which will render loading 
+    App.setLoading(true)
+    //fetching the value passed at the frontend 
+    const content = $('#newTask').val()
+
+    //passing the value to the backend blockchain to create a task
+    await App.todoList.createTask(content)
+
+    //reload the page after the task is created 
+    //this will reload the page to list all the task after adding tasks
+    window.location.reload()
+  },
   setLoading: (boolean) => {
     App.loading = boolean
     const loader = $('#loader')

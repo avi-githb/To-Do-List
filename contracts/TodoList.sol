@@ -14,10 +14,17 @@ contract TodoList{
     }
     //public keyword gives a free reader function 
     mapping (uint => Task) public tasks;
+    event TaskCreated(
+        uint id,
+        string content,
+        bool completed
+    );
 
     function createTask(string memory _content) public{
         taskCount ++;
         tasks[taskCount] = Task(taskCount,_content,false);
+        //create an event 
+        emit TaskCreated(taskCount,_content,false);
     }
 
 }
