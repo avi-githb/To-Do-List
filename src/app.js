@@ -103,11 +103,11 @@ App = {
 
       //in the template we are passing taskContent 
       $newTaskTemplate.find('.content').html(taskContent)
-      $newTaskTemplate.find('input').prop('name', taskId).prop('checked', taskCompleted)//.on('click',App.toggleCompleted)
+      $newTaskTemplate.find('input').prop('name', taskId).prop('checked', taskCompleted).on('click',App.toggleCompleted)
 
       //put the task in the correct list completed or incompleted 
       if(taskCompleted){
-        $('#completedTaskList'.append($newTaskTemplate))
+        $('#completedTaskList').append($newTaskTemplate)
       }
       else{
         $('#taskList').append($newTaskTemplate)
@@ -129,6 +129,12 @@ App = {
 
     //reload the page after the task is created 
     //this will reload the page to list all the task after adding tasks
+    window.location.reload()
+  },
+  toggleCompleted: async(event)=>{
+    App.setLoading(true)
+    const taskId = event.target.name
+    await App.todoList.toggleCompleted(taskId)
     window.location.reload()
   },
   setLoading: (boolean) => {
