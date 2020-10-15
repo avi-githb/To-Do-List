@@ -1,0 +1,23 @@
+1. bs-config.json : is a configuration file for lite-server module defined in package.json
+this will act as the server and expose the files
+bs-config.json tells the lite server where the application src files, smart contract and node_modules are located in the project
+
+
+2. to start the lite server :
+# npm run dev 
+
+3. Way defined by METAMASK to talk to blockchain using web3.js
+Link: https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
+
+4. web3.js is a library this helps to connect to blockchain
+>>Browser connect to blockchain using METAMASK
+>>client side application connect to blockchain using web3.js, this will allows us conntect to blockchain to read/write data
+
+5. In order to connect the browser to the blockchian using metamask follow below steps:
+
+> we will copy the private key of the account where smart contract is deployed from GANACHE
+> then go to metamask > create new network and point to http://localhost:7545/
+>click on import account : and add the private key
+>>this way an account will connect to blockchain
+
+6. 
